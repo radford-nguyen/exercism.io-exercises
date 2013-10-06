@@ -3,12 +3,12 @@ import Data.Char
 
 responseFor :: String -> String
 responseFor s
-  | silence s  = "Fine. Be that way!"
-  | shout s    = "Woah, chill out!"
-  | question s = "Sure."
-  | otherwise  = "Whatever."
+  | silence   = "Fine. Be that way!"
+  | shout     = "Woah, chill out!"
+  | question  = "Sure."
+  | otherwise = "Whatever."
   where
-    silence s  = all isSpace s
-    shout s    = any isUpper s && (not $ any isLower s)
-    question s = last s == '?'
+    silence   = all isSpace s
+    shout     = any isUpper s && (not $ any isLower s)
+    question  = last s == '?'
 
